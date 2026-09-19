@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة لأيمي 💌</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الصفحة الأولى -->
+        <div id="welcomePage" class="page active">
+            <div class="greeting">أهلاً أيمي 💕</div>
+            <div class="greeting-text">عندي مفاجأة حلوة ليك</div>
+            <div class="heart-icon">❤️</div>
+            <button class="open-btn" onclick="openEnvelope()">إفتحي المفاجأة</button>
+        </div>
+
+        <!-- الرسالة -->
+        <div id="messagePage" class="page" style="display: none;">
+            <div class="envelope-container">
+                <div class="envelope active"></div>
+            </div>
+            
+            <div class="message-box active">
+                <div class="message-title">رسالة خاصة ليك 💌</div>
+                <div class="message-content">
+                    أيمي، أنتِ تستاهي كل الخير اللي في الدنيا. 
+                    <br><br>
+                    تستاهي تحققي كل أحلامك، تستاهي تبتسمي كل يوم، وتستاهي تكوني فخورة بنفسك.
+                    <br><br>
+                    شكراً إنك موجودة في حياتنا. أنتِ غالية جداً. 💝
+                </div>
+                <a href="#" class="game-link" onclick="goToGame(event)">جربي اللعبة البسيطة كمان ✨</a>
+            </div>
+
+            <button class="open-btn" onclick="goHome()" style="margin-top: 20px;">العودة</button>
+        </div>
+
+        <!-- اللعبة -->
+        <div id="gamePage" class="page" style="display: none;">
+            <div class="game-title">اجمعي القلوب 💕</div>
+            <div class="game-area" id="gameArea"></div>
+            <div class="score">القلوب المجمعة: <span id="scoreDisplay">0</span></div>
+            <button class="reset-btn" onclick="resetGame()">لعبة جديدة</button>
+            <button class="back-btn" onclick="backToMessage()">العودة</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

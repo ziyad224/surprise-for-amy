@@ -1,0 +1,299 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .greeting {
+            font-size: 32px;
+            color: #d63031;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .greeting-text {
+            font-size: 18px;
+            color: #636e72;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .heart-icon {
+            font-size: 40px;
+            animation: heartBeat 1.2s infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* الزر الرئيسي */
+        .open-btn {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(214, 48, 49, 0.3);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .open-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.4);
+        }
+
+        .open-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* الظرف */
+        .envelope-container {
+            perspective: 1000px;
+            margin: 30px 0;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope {
+            width: 200px;
+            height: 120px;
+            background: #f8f9fa;
+            border: 3px solid #d63031;
+            border-radius: 10px;
+            position: relative;
+            display: none;
+            animation: slideIn 0.6s ease;
+        }
+
+        .envelope.active {
+            display: block;
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, #ff7675, #f8f9fa);
+            clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+            animation: envelopeOpen 0.8s ease forwards;
+        }
+
+        @keyframes envelopeOpen {
+            0% {
+                clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+            }
+            100% {
+                clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 0 100%);
+                transform: rotateX(-60deg);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* الرسالة */
+        .message-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6f0 100%);
+            border: 2px solid #d63031;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            display: none;
+            animation: messageAppear 0.8s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .message-box.active {
+            display: block;
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-title {
+            font-size: 24px;
+            color: #d63031;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .message-content {
+            font-size: 16px;
+            color: #2d3436;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .game-link {
+            display: inline-block;
+            color: #d63031;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 8px 16px;
+            border: 2px solid #d63031;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-link:hover {
+            background: #d63031;
+            color: white;
+        }
+
+        /* شاشة اللعبة */
+        .game-screen {
+            display: none;
+        }
+
+        .game-screen.active {
+            display: block;
+        }
+
+        .game-title {
+            font-size: 28px;
+            color: #d63031;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .game-area {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-radius: 20px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 3px dashed #d63031;
+        }
+
+        .heart-game {
+            position: absolute;
+            font-size: 40px;
+            cursor: pointer;
+            user-select: none;
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .heart-game:hover {
+            transform: scale(1.2) !important;
+        }
+
+        .score {
+            font-size: 24px;
+            color: #d63031;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .reset-btn {
+            background: #d63031;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #ff7675;
+        }
+
+        .back-btn {
+            background: #74b9ff;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #0984e3;
+        }
+
+        /* موبايل */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .greeting {
+                font-size: 24px;
+            }
+
+            .open-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .game-area {
+                height: 300px;
+            }
+        }
